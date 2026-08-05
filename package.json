@@ -1,0 +1,9 @@
+{
+  "name": "laporan-generator-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Penyusun draft laporan kegiatan instansi pemerintah dari transkrip rapat, menggunakan Claude API.",
+  "scripts": {
+    "dev": "echo 'Untuk dev lokal: pakai `vercel dev` (Vercel) atau `netlify dev` (Netlify)'"
+  }
+}
