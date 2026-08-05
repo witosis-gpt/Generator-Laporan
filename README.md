@@ -21,6 +21,23 @@ laporan-generator-app/
 Anda hanya perlu **salah satu** — Vercel atau Netlify — sesuai platform pilihan.
 Tidak perlu menghapus folder yang tidak dipakai, tidak akan mengganggu.
 
+## Kenapa Bisa 502 (Penting!)
+
+Untuk laporan yang panjang, Claude butuh waktu >10 detik untuk generate.
+**Netlify** (paket gratis) memotong function setelah 10 detik dan mengembalikan
+502 — ini penyebab paling umum error "Server error: 502" di app ini.
+
+**Solusinya: pakai Vercel.** File `vercel.json` di project ini sudah diset
+supaya function `api/generate-report.js` boleh jalan sampai **60 detik**
+(cukup untuk hampir semua transkrip). Kalau Anda sudah terlanjur deploy ke
+Netlify, tinggal import repo GitHub yang sama ke Vercel (langkah di bawah) —
+tidak perlu ubah kode apa pun, filenya sudah siap untuk keduanya.
+
+Kalau tetap mau pakai Netlify: fitur *Background Functions* mereka bisa jalan
+sampai 15 menit, tapi butuh arsitektur berbeda (function langsung balas
+"diterima", hasilnya baru bisa diambil lewat polling/database terpisah) —
+kasih tahu saya kalau mau dibantu setup versi itu.
+
 ## 1. Dapatkan API Key
 
 1. Buka [console.anthropic.com](https://console.anthropic.com) dan buat akun
