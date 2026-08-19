@@ -2,6 +2,12 @@ name: Football Scout Cloud Run
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - football-scout-cloud-run
+    paths:
+      - 'football_scout/**'
+      - '.github/workflows/football-scout.yml'
 
 jobs:
   scrape:
